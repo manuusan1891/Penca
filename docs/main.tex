@@ -1,0 +1,99 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Paquetes Básicos ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx} 
+\usepackage{listings} 
+\usepackage{xcolor}   
+\usepackage{hyperref} 
+
+% --- Configuración de colores para el código SQL/Python ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% --- Información del Documento ---
+\title{Documentación Técnica: Sistema de Penca del Mundial}
+\author{Estudiante de Informática - UCU}
+\date{\today}
+
+% =======================================================
+% AQUÍ EMPIEZA EL CONTENIDO REAL DEL DOCUMENTO
+% =======================================================
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\sidebar
+\section{Introducción}
+Este proyecto consiste en el desarrollo de una plataforma web para la gestión de una \textit{penca} (quiniela/prode) deportiva orientada al Mundial de Fútbol. El sistema integra una interfaz web para usuarios, una base de datos relacional en MySQL y un motor de cálculo automatizado en hojas de cálculo.
+
+\section{Estrategia de Desarrollo y Uso de Inteligencia Artificial}
+
+En el marco del desarrollo de este proyecto, se adoptó un enfoque de co-creación asistida por Inteligencia Artificial (IA), utilizando el modelo \textbf{Gemini de Google} como partner estratégico de desarrollo. A continuación, se detallan las estrategias, herramientas y metodologías aplicadas.
+
+\subsection{Estrategias de Ingeniería de Prompts (Prompt Engineering)}
+Para garantizar la precisión de las respuestas de la IA y optimizar el tiempo de desarrollo, se implementaron las siguientes estrategias de comunicación con el modelo:
+\begin{itemize}
+    \item \textbf{Roleplay (Asignación de Rol):} Se interactuó con la IA definiéndola como un consultor técnico y arquitecto de software experto en la integración de bases de datos y entornos web.
+    \item \textbf{Desarrollo Incremental (Step-by-Step):} En lugar de solicitar el código completo del sistema en un solo bloque, se segmentó el proyecto en módulos lógicos independientes (primero la instalación del entorno MySQL, luego el diseño de tablas, posteriormente la lógica de Sheets y finalmente el backend).
+    \item \textbf{Contextualización de Entorno:} Se alimentó a la IA con los requerimientos específicos de la cátedra (restricciones de uso de tecnologías, almacenamiento en GitHub y documentación obligatoria en \LaTeX) para alinear las soluciones propuestas a los criterios de evaluación.
+\end{itemize}
+
+\subsection{Herramientas y Tecnologías Utilizadas}
+El ecosistema del proyecto quedó definido bajo los siguientes componentes estratégicos:
+\begin{description}
+    \item[Control de Versiones:] \textbf{GitHub} para el alojamiento del código fuente, el seguimiento de cambios y la gestión del repositorio bajo una estructura limpia de carpetas de ingeniería.
+    \item[Base de Datos:] \textbf{MySQL (Server y Workbench)}, seleccionado para garantizar una persistencia de datos relacional robusta, óptima para manejar usuarios, partidos y predicciones.
+    \item[Motor de Cálculo:] \textbf{Google Sheets}, utilizando fórmulas lógicas condicionales como puente automatizado para procesar los puntajes del torneo.
+    \item[Documentación Técnica:] \textbf{Overleaf / \LaTeX}, utilizado para asegurar un formato académico estricto, estandarizado y profesional.
+\end{description}
+
+\subsection{Bitácora de Interacción y Resolución de Problemas}
+La IA operó como un asistente de depuración en tiempo real. Un ejemplo de esto ocurrió durante la fase de instalación de la base de datos, donde el asistente guio la toma de decisiones técnicas para desestimar la configuración de servidor aislado (``Server only'') en favor de una instalación completa (``Full''), asegurando la disponibilidad de conectores esenciales y la interfaz gráfica de MySQL Workbench necesarios para las etapas posteriores de desarrollo.
+
+\section{Diseño de la Base de Datos}
+A continuación se presenta el código DDL inicial propuesto para la creación de la base de datos en MySQL:
+
+\begin{lstlisting}[language=SQL, caption=Estructura base de la tabla usuarios]
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    puntos_totales INT DEFAULT 0
+);
+\end{lstlisting}
+
+\section{Conclusión}
+[Contenido en desarrollo]
+
+\end{document}

@@ -1,0 +1,1 @@
+=SI(O(ESBLANCO(D2); ESBLANCO(E2)); 0; SI(Y(D2=BUSCARV(C2; Partidos_Reales!A:F; 5; FALSO); E2=BUSCARV(C2; Partidos_Reales!A:F; 6; FALSO)); 3; SI(SIGNO(D2-E2)=SIGNO(BUSCARV(C2; Partidos_Reales!A:F; 5; FALSO)-BUSCARV(C2; Partidos_Reales!A:F; 6; FALSO)); 1; 0)))
